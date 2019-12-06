@@ -1,0 +1,62 @@
+package InterfaceGraphic;
+
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
+import Animal.CadastroGeral;
+
+public class AnestesiaTableModel extends DefaultTableModel {
+	private List<CadastroGeral > linhas = new ArrayList<CadastroGeral>();
+	private String[] colunas = { "Data", "RG", "Nome do Animal", "Espécie", "Técnica Anestésicas",
+			"Procedimentos Simples", "Procedimentos Complexos" };
+
+	@Override
+	public String getColumnName(int column) {
+		// TODO Auto-generated method stub
+		return colunas[column];
+	}
+
+	/*
+	 * @Override public int getRowCount() { // TODO Auto-generated method stub
+	 * return linhas.size(); }
+	 */
+
+	@Override
+	public int getColumnCount() {
+		// TODO Auto-generated method stub
+		return colunas.length;
+	}
+
+	@Override
+	public Object getValueAt(int linha, int coluna) {
+
+		switch (coluna) {
+		case 0:
+			return linhas.get(linha).getData();
+
+		case 1:
+			return linhas.get(linha).getRg();
+
+		case 2:
+			return linhas.get(linha).getNome();
+
+		case 3:
+			return linhas.get(linha).getEspecie();
+			
+		case 4:
+			return linhas.get(linha).getTecnicasAnestesicas();
+
+		case 5:
+			return linhas.get(linha).getProcedimentosASimples();
+			
+		case 6:
+			return linhas.get(linha).getProcedimentosAComplexos();
+
+
+		}
+
+		return null;
+	}
+
+}
